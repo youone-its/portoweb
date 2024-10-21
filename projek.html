@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="projek.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <ul class="menu" id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projek.html">Projects</a></li>
+          <li><a href="achieve.html">Achievements</a></li>
+        </ul>
+  
+        <div class="bars">
+          <i class="fa-bars"></i>
+        </div>
+      </header>
+    <div class="container blurInUp">
+        <div class="aa"></div>
+        <div class="text">
+            <h2 id="element">Project: </h2>
+        </div>
+        <div class="ab"></div>
+        <li>
+            <a href="calc.html">
+                <div class="card blurIn q4">
+                    <div class="content">
+                        <h2>Calculator</h2>
+                    </div>
+                </div>
+            </a>
+        </li>
+        
+        <li>
+            <a href="guess.html">
+                <div class="card blurIn q1"  href="guess.html">
+                    <div class="content">
+                        <h2>Guess a Number</h2>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="weather.html">
+                <div class="card blurIn q1"  href="guess.html">
+                    <div class="content">
+                        <h2>Weather App</h2>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="index.html">
+                <div class="card blurIn q5">
+                    <div class="content">
+                        <h2>Back To  Home</h2>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        var typed = new Typed("#element", {
+        strings: ["Calculator", "Weather App", "Guess a Number"],
+        startDelay: 1000,
+        typeSpeed: 50,
+        backSpeed: 80,
+        loop: true,
+        loopCount: Infinity,
+        showCursor: true,
+        cursorChar:"|",
+      });
+        const hamburger_menu= document.querySelector(".bars");
+      hamburger_menu.addEventListener("click", () => {
+          document.body.classList.toggle("active")
+      })
+
+      let bars = document.querySelector(".bars");
+      let menu = document.querySelector("#menu");
+
+      bars.addEventListener("click", () => {
+        menu.classList.toggle("mobile-menu");
+      });
+        
+    </script>
+</body>
+</html>

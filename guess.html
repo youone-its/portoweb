@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+body{
+    height: 100vh;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background:#222;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+body::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #2596be;
+    clip-path: circle(40% at right);
+    z-index: -1;
+}
+h1{
+    color: white;
+    text-shadow: 3px 3px 0 black;
+
+    font-size: 50px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+form{
+    background: rgba(0, 0, 0, 0.318);
+    backdrop-filter: blur(7px);
+    padding: 2rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    gap: 2rem;
+}
+
+h2{
+    font-size: 30px;
+}
+
+input{
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+button{
+    background:#2596be;
+    border: none;
+    outline: none;
+
+    margin: 0 auto;
+    width: 150px;
+    padding: 1rem 3rem;
+
+    color: black;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+    transition: .1s ease-in-out;
+    border-radius: 15px;
+}
+
+button:hover{
+    transform: scale(1.1);
+}
+
+button:active{
+    background: #2596be;
+}
+
+#output{
+    width: fit-content;
+    margin: 0 auto;
+
+    font-weight: 700 ;
+    font-size: 30px;
+}
+    </style>
+</head>
+<body>
+    <h1>Number Guessing Game</h1>
+    <form action="#">
+        <h2>
+            I'm thinking of a number Between 1-100 <br/> Can You Guess it
+        </h2>
+        <input type="number" min="1" max="100" id="userInput">
+        <button type="submit" id="btn">Guess</button>
+        <span id="output"></span>
+    </form>
+
+    <script>
+        const output= document.getElementById("output")
+const btn= document.getElementById("btn")
+const Input= document.getElementById("userInput")
+
+x= Math.floor(Math.random() * 100)
+// console.log(x)
+
+btn.addEventListener("click", function(e){
+    e.preventDefault()
+
+    // output.style.display= "block"
+    if(!Input.value){
+        output.innerHTML= "Enter A Number!!"
+        output.style.color= "red"
+        return 
+    }
+    else{
+        if(Input.value == x){
+            output.innerHTML= `You guessed Right, your number is ${x}`
+            output.style.color= "#00e300"
+            document.body.style.pointerEvents= "none"
+
+            setInterval(() => {
+                output.innerHTML += "."
+            }, 500);
+            setInterval(() => {
+                location.reload()
+            }, 2000);
+        }else if(Input.value < x){
+            output.innerHTML= "You guessed Low!"
+            output.style.color="orange"
+        }else{
+            output.innerHTML= "You guessed high!"
+            output.style.color= "orange"
+        }
+    }
+})
+    </script>
+</body>
+</html>

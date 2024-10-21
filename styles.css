@@ -1,0 +1,455 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+:root {
+  --primary-color: #164283;
+  --background-color: #ffffff;
+  --nav-background-color: #164283;
+  --nav-text-color: #ffffff;
+  --text-color: #1e1e1e;
+}
+
+
+body {
+  background-color: var(--background-color);
+  transition:all .5s ease;
+}
+
+.dark-mode {
+  --background-color: #222;
+  --text-color: #fff;
+  --primary-color: #2596be;
+  --nav-text-color: #222;
+  --nav-background-color: #2596be;
+  transition: all .5s ease;
+}
+
+.fa-sun {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  padding: 14px;
+  background-color: var(--primary-color);
+  font-size: 1.5rem;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 30;
+}
+.fa-moon {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  padding: 14px;
+  background-color: var(--primary-color);
+  font-size: 1.5rem;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 30;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 12%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 1s;
+  z-index: 9;
+}
+
+h2 {
+  color: var(--text-color);
+  font-size: 600;
+  font-size: 2rem;
+}
+
+header ul {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+header ul li a {
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 20px;
+  cursor: pointer;
+  font-size: 30px;
+  position: relative;
+  transition: 0.1s ease-in-out;
+}
+
+header ul li:hover a {
+  color: var(--primary-color);
+}
+
+header ul li a::after {
+  content: "";
+  position: absolute;
+  top: 110%;
+  left: 0;
+  height: 2px;
+  width: 0%;
+
+  border-radius: 5rem;
+  background-color: var(--primary-color);
+  transition: all 0.5s ease-in-out;
+}
+
+header ul li:hover a::after {
+  width: 100%;
+}
+
+.hero .social_icons {
+  display: block;
+  align-items: center;
+  margin-right: 10px;
+}
+.moveFromLeft {
+  animation-name: moveFromLeft;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards; 
+  animation-timing-function: ease-out;
+  opacity: 0;
+}
+
+@keyframes moveFromLeft {
+  0% {
+    transform: translateX(-800px);
+    opacity: 0; /* Objek transparan di awal */
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1; /* Objek tampak di posisi akhir */
+  }
+}
+.moveFromBottom {
+  animation-name: moveFromBottom;
+  animation-delay: 1.7s;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards; 
+  animation-timing-function: ease-out;
+  opacity: 0;
+}
+
+@keyframes moveFromBottom {
+  0% {
+    transform: translateY(800px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1; 
+  }
+}
+
+.blurInLeft {
+  animation-delay: 1s;
+  animation-name: blurInLeft;
+  animation-duration: 1s;  
+  animation-fill-mode: forwards;  
+  animation-timing-function: ease-out;  
+  opacity: 0; 
+}
+
+@keyframes blurInLeft {
+  0% {
+    transform: translateX(300px); 
+    filter: blur(10px); 
+    opacity: 0; 
+  }
+  100% {
+    transform: translateX(0); 
+    filter: blur(0); 
+    opacity: 1;  
+  }
+}
+.blurIn {
+  animation-delay: 1.5s;
+  animation-name: blurIn;
+  animation-duration: 1s;  
+  animation-fill-mode: forwards;  
+  animation-timing-function: ease-out;  
+  opacity: 0; 
+}
+
+@keyframes blurIn {
+  0% {
+    filter: blur(100px); 
+    opacity: 0; 
+  }
+  100% {
+    transform: translateX(0); 
+    filter: blur(0); 
+    opacity: 1;  
+  }
+}
+.hero .social_icons i {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  background-color: var(--primary-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all 0.15s ease-in;
+  margin-top: 20px;
+}
+.hero .social_icons i:hover {
+  transform: scale(1.1);
+}
+
+.bars {
+  display: none;
+  cursor: pointer;
+}
+
+.hero {
+  width: 100%;
+  min-height: 90vh;
+  margin-top: 10vh;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 12%;
+}
+
+.hero_detail{
+    width: 50%;
+    margin: 0;
+    position: relative;
+}
+
+.hero_detail h1{
+    font-size: 65px;
+    font-weight: 600;
+    line-height: 70px;
+    color: var(--text-color);
+}
+
+.hero_detail h2{
+    display: inline;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--primary-color);
+    padding-top: -35px;
+    margin-left: 140px;
+    position: relative;
+}
+
+.hero_detail h2::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -130px;
+    height: 2px;
+    width: 120px;
+    background-color: var(--primary-color);
+}
+
+.hero_detail p{
+    font-size: 16px;
+    margin: 25px 0;
+    width: 90%;
+    color: var(--text-color);
+}
+
+.hero_detail button{
+    margin-top: 40px;
+    background: var(--primary-color);
+    padding: 20px 30px;
+    border: none;
+    font-size: 1.3rem;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.hero_detail button i{
+    margin-left: 10px;
+    color: var(--primary-color);
+}
+
+.hero-image{
+    position: relative;
+}
+
+img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media (max-width: 1100px){
+    .hero .social_icons{
+        display: none;
+    }
+
+    .hero_detail h1{
+        font-size: 55px;
+    }
+
+    .menu{
+        position: absolute;
+        flex-direction: column;
+        align-items: flex-start;
+        top: 0px;
+        right: 0;
+        background-color: var(--nav-background-color);
+        width: 270px;
+        height: 0;
+        overflow: hidden;
+        transition: all .5s ease-in-out;
+        z-index: -2;
+    }
+
+    header ul li a{
+        color: var(--nav-text-color);
+    }
+
+    header ul li:hover a{
+        color: var(--nav-text-color);
+    }
+
+    .mobile-menu{
+        height: 1000px;
+        padding: 100px 10px;
+        opacity: .9;
+        backdrop-filter: blur(70px);
+        box-shadow: 3px 3px 15px rgba(0, 0, 0, .5);
+    }
+    .bars{
+      height: 4rem;
+      width: 3rem;
+      cursor: pointer;
+  
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+  
+  }
+  
+  .fa-bars{
+      width: 3rem;
+      height: 3px;
+  
+      border-radius: 5rem;
+      background-color: var(--text-color);
+      transition: .5s ;
+      position: relative;
+  }
+  
+  .fa-bars::before, .fa-bars::after{
+      content: "";
+  
+      position: absolute;
+      width: inherit;
+      height: inherit;
+      border-radius: 5rem;
+      background: var(--text-color);
+      transition: .5s;
+  }
+  
+  .fa-bars::before{
+      transform: translateY(-13px);
+  }
+  
+  .fa-bars::after{
+      transform: translateY(13px);
+  }
+  
+  body.active .fa-bars{
+      transform: rotate(360deg);
+      background-color: transparent;
+  }
+  
+  body.active .fa-bars::before{
+      transform: translateY(0) rotate(45deg);
+  }
+  
+  body.active .fa-bars::after{
+      transform: translateY(0) rotate(-45deg);
+  }
+
+    .hero .social_icons{
+        display: none;
+    }
+}
+
+@media (max-width: 1000px){
+    .hero_detail{
+        margin: 0;
+    }
+}
+
+@media (max-width: 900px){
+    .hero_detail h1{
+        font-size: 80px;
+        line-height: 90px;
+    }
+
+    .hero_detail h2{
+        font-size: 20px;
+        font-weight: 300;
+    }
+
+    .hero{
+        flex-direction: column;
+        padding-top: 120px;
+        justify-content: center;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .hero_detail{
+        width: 100%;
+    }
+
+    .hero-image img{
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 600px){
+    .hero_detail h1{
+        font-size: 60px;
+        line-height: 70px;
+    }
+
+    .hero_detail h2{
+        font-size: 14px;
+    }
+
+    .fa-sun{
+        right: 20px;
+        bottom: 10px;
+    }
+}
