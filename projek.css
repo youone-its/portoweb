@@ -1,93 +1,427 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="projek.css">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <ul class="menu" id="menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="projek.html">Projects</a></li>
-          <li><a href="achieve.html">Achievements</a></li>
-        </ul>
-  
-        <!--<div class="bars">
-          <i class="fa-bars"></i>
-        </div>-->
-      </header>
-    <div class="container blurInUp">
-        <div class="aa"></div>
-        <div class="text">
-            <h2 id="element">Project: </h2>
-        </div>
-        <div class="ab"></div>
-        <li>
-            <a href="calc.html">
-                <div class="card blurIn q4">
-                    <div class="content">
-                        <h2>Calculator</h2>
-                    </div>
-                </div>
-            </a>
-        </li>
-        
-        <li>
-            <a href="guess.html">
-                <div class="card blurIn q1"  href="guess.html">
-                    <div class="content">
-                        <h2>Guess a Number</h2>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="weather.html">
-                <div class="card blurIn q1"  href="guess.html">
-                    <div class="content">
-                        <h2>Weather App</h2>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="index.html">
-                <div class="card blurIn q5">
-                    <div class="content">
-                        <h2>Back To  Home</h2>
-                    </div>
-                </div>
-            </a>
-        </li>
-    </div>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    transition: all 0.5 ease;
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+:root {
+  --background-color: rgba(255, 255, 255, 0.046);
+  --nav-background-color: #1e1e1e;
+  --nav-text-color:#ffff;
+  --nav-text-color-rgb:255,255,255;
+  --text-color: #1e1e1e;
+  transition: all .5s ease;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--nav-background-color);
+    transition: all .5s ease;
+}
+.container{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
 
+    width: 80%;
+    min-height: 80%;
+    margin: auto;
+    padding: 1rem 0;
+    color: var(--nav-background-color);
+
+    background:var(--background-color);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, .5);
+
+}
+.card{
+    width: 350px;
+    height: 130px;
+    background: var(--nav-text-color);
+    border-radius: 10px;
+    margin-top: 70px;
+    margin-left: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .5);
+    transition: .3s ease;
+    padding: 30px 50px;
+    cursor: pointer;
+    position: relative;
+}
+body::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #2596be;
+    clip-path: circle(40% at right);
+    z-index: -1;
+}
+.content{
+    padding: 0px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.content h2{
+    color: #2596be;
+
+    text-shadow: 
+    0 0 3px #2596be,
+    0 0 6px #2596be,
+    0 0 15 #2596be;
+}
+@media (max-width: 1100px){
+    .container{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    width: 92%;
+    min-height: 80%;
+    margin-left: 35px;
+    padding-left: 10px;
+    color: var(--nav-background-color);
+
+    background:var(--background-color);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, .5);
+    }
+    .aa{
+        display:none;
+    }
+    body::after{
+    clip-path: circle(40% at top);
+    z-index: -1;
+}
+}
+@media (max-width: 1000px){
+    .card{
+    width: 300px;
+    }
+}
+
+@media (max-width: 900px){
+    .container{
+        grid-template-columns: repeat(2, 50%);
+    }
+    .card{
+        width:80%;
+        margin-left: 10px;
+    }
+    .content{
+        margin-top: -60%;
+        width:180px;
+        margin-left:-15%;
+    }
+}
+@media (max-width: 600px){
+    .container{
+        grid-template-columns: repeat(1,0px);
+    }
+    .card .content{
+        margin-top: -3%;
+        width: 100%;
+    }
+    .card{
+        width: 300px;
+        height: 100px;
+        margin-top: 100px;
+        margin-left:55px;
+    }
+    .fa-sun{
+        right: 20px;
+        bottom: 10px;
+    }
     
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script>
-        var typed = new Typed("#element", {
-        strings: ["Calculator", "Weather App", "Guess a Number"],
-        startDelay: 1000,
-        typeSpeed: 50,
-        backSpeed: 80,
-        loop: true,
-        loopCount: Infinity,
-        showCursor: true,
-        cursorChar:"|",
-      });
-        const hamburger_menu= document.querySelector(".bars");
-      hamburger_menu.addEventListener("click", () => {
-          document.body.classList.toggle("active")
-      })
+}
+.blurInUp {
+  animation-name: blurInUp;
+  animation-duration: 1s;  
+  animation-fill-mode: forwards;  
+  animation-timing-function: ease-out;  
+  opacity: 0; 
+}
 
-      let bars = document.querySelector(".bars");
-      let menu = document.querySelector("#menu");
+@keyframes blurInUp {
+  0% {
+    transform: translateY(-300px); 
+    filter: blur(10px); 
+    opacity: 0; 
+  }
+  100% {
+    transform: translateY(0); 
+    filter: blur(0); 
+    opacity: 1;  
+  }
+}
+.blurIn {
+  animation-name: blurIn;
+  animation-duration: .7s;  
+  animation-fill-mode: forwards;  
+  animation-timing-function: ease-out;  
+  opacity: 0; 
+}
+.q{animation-delay: .4s;}
+.q1{animation-delay:.6s;}
+.q2{animation-delay:.8s;}
+.q3{animation-delay:1s;}
+.q4{animation-delay:1.2s;}
+.q5{animation-delay:1.4s;}
+@keyframes blurIn {
+  0% {
+    filter: blur(100px); 
+    opacity: 0; 
+  }
+  100% {
+    transform: translateX(0); 
+    filter: blur(0); 
+    opacity: 1;  
+  }
+}
+.bars{
+      height: 4rem;
+      width: 3rem;
+      cursor: pointer;
+      position: fixed;
+    right: 40px;
+    top: 40px;
+    padding: 14px;
+    font-size: 1.5rem;
+    color: #222;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index:99;
+      align-items: center;
+      justify-content: flex-end;
+  
+  }
+  .fa-bars{
+      width: 3rem;
+      height: 3px;
+  
+      border-radius: 5rem;
+      background-color: var(--nav-text-color);
+      transition: .5s ;
+      position: relative;
+  }
+  
+  .fa-bars::before, .fa-bars::after{
+      content: "";
+  
+      position: absolute;
+      width: inherit;
+      height: inherit;
+      border-radius: 5rem;
+      background: var(--nav-text-color);
+      transition: .5s;
+  }
+  
+  .fa-bars::before{
+      transform: translateY(-13px);
+  }
+  
+  .fa-bars::after{
+      transform: translateY(13px);
+  }
+  
+  body.active .fa-bars{
+      transform: rotate(360deg);
+      background-color: transparent;
+  }
+  
+  body.active .fa-bars::before{
+      transform: translateY(0) rotate(45deg);
+  }
+  
+  body.active .fa-bars::after{
+      transform: translateY(0) rotate(-45deg);
+  }
 
-      bars.addEventListener("click", () => {
-        menu.classList.toggle("mobile-menu");
-      });
-        
-    </script>
-</body>
-</html>
+    .hero .social_icons{
+        display: none;
+    }
+    .mobile-menu{
+        padding:100px 40px;
+        padding-bottom:50%;
+        opacity: .7;
+        backdrop-filter: blur(10px);
+        box-shadow: 3px 3px 15px rgba(0, 0, 0, .5);
+        z-index:4;
+    }
+    .menu{
+        position: absolute;
+        flex-direction: column;
+        align-items: flex-start;
+        top: 0px;
+        right: 0;
+        background-color: var(--nav-background-color);
+        width: 30%;
+        height: 0px;
+        overflow: hidden;
+        transition: all .5s ease-in-out;
+        z-index:4;
+    }
+    a {text-decoration: none;}
+    header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 12%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 1s;
+  z-index:  3;
+}
+header ul {
+    list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+header ul li a {
+  color: var(--nav-text-color);
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 20px;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  transition: 0.1s ease-in-out;
+  font-size: 30px;
+}
+
+header ul li:hover a {
+  color: #2596be;
+  transition: all 0.5s ease;
+}
+
+header ul li a::after {
+  content: "";
+  position: absolute;
+  top: 110%;
+  left: 0;
+  height: 2px;
+  width: 0%;
+
+  border-radius: 5rem;
+  background-color:#2596be;
+  transition: all 0.5s ease-in-out;
+}
+
+header ul li:hover a::after {
+  width: 100%;
+}
+.text h2{
+    display: inline-block;
+    font-size: 43px;
+    font-weight: bold;
+    color: var(--nav-text-color);
+    padding-top: -35px;
+    margin-left: 140px;
+    position: relative;
+}
+
+.text h2::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -130px;
+    height: 2px;
+    width: 120px;
+    background-color: var(--nav-text-color);
+}
+.text{
+    height:30px;
+}
+.typed-cursor {
+    font-size: 50px;  /* Sesuaikan ukuran kursor */
+    color: var(--nav-text-color);  /* Sesuaikan warna kursor */
+    animation: blink-cursor 0.7s steps(1) infinite;  /* Animasi berkedip */
+}
+
+@keyframes blink-cursor {
+    50% {
+        opacity: 0;
+    }
+}
+
+.q5, .q, .q1, .q2, .q3, .q4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card::before {
+    content: "";
+    background: linear-gradient(45deg,
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.card:active {
+    color: #000;
+}
+
+.card:active::after {
+    background: transparent;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+
+}
